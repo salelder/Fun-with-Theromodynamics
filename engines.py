@@ -113,7 +113,4 @@ class Gas:
     dQ= g.N*k*((g.f+2)/2)*(g.T-Ti)
     dS= abs(((g.f+2)/2)*g.N*k*math.log(g.T/Ti))
     return Deltas(dW,dQ,dS)
-class Carnot:
-  def __init__(self,g,Vmin,TH,TC):
-    g.set_pT(pmax,TH)
     
