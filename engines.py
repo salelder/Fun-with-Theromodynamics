@@ -1,11 +1,11 @@
+# Python 2.7.6
 import math
-import matplotlib.pyplot as plt
+
 NA= 6.022e23 # Avogadro's number
 k= 1.3806488e-23 # in SI base units
 atm= 101325 # atmospheric pressure in Pa
 L= .001 # 1 L = .001 m^3
-plt.xlabel("Volume (m^3)")
-plt.ylabel("Pressure (Pa)")
+
 class Deltas:
   # A delta object contains {dW, dQ, dS} for work performed by gas,
   # heat absorbed by the gas, and entropy increase of the universe, respectively
@@ -21,25 +21,20 @@ class Gas:
     self.N= float(N)
     self.f= float(f)
     self.gamma= (self.f+2)/self.f
-  def drawPoint(self):
-    plt.plot(self.V, self.p, 'ro')
   def getU(self):
     return self.N*k*self.f*self.T/2
   def set_pV(self,p,V):
     self.p= float(p)
     self.V= float(V)
     self.T= self.p*self.V/(self.N*k)
-    self.drawPoint()
   def set_VT(self,V,T):
     self.V= float(V)
     self.T= float(T)
     self.p= self.N*k*self.T/self.V
-    self.drawPoint()
   def set_pT(self,p,T):
     self.p= float(p)
     self.T= float(T)
     self.V= self.N*k*self.T/self.p
-    self.drawPoint()
   def adiabat_T(g,T):
     # Given gas g and target temperature T, returns delta dictionary for an
     # adiabat to the target temperature. Also moves g to the appropriate
